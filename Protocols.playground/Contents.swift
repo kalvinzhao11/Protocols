@@ -89,7 +89,37 @@ let sam = Person(fullName: "Sam curtis", favoriteColor: "red")
 
 // Extensions allow us to "Extend" the functionality ofa data type without needing to do back to the data type's declaration
 extension Person: Equatable{
-    
+    static func == (lhs: Person, rhs: Person) -> Bool { //left hand side and right hand side
+//        if lhs.fullName == rhs.fullName {
+//            return true
+//        } else {
+//            return false
+//        }
+        return lhs.fullName == rhs.fullName
+    }
+//    func printMyName(){
+//        print("Spencer Curtis")
+//    }
+}
+//Person()
+
+if me == sam {
+    print("They are the same")
 }
 
+
+class Dice {
+    let sides: Int
+    let generator: GeneratesRandomNumbers  // ANYTHING that conforms to this protocol can be the value for generator
+    
+    init(sides: Int, generator: GeneratesRandomNumbers){
+        self.sides = sides
+        self.generator = generator
+    }
+    
+    func roll() -> Int {
+        let rolledNumber = generator.random() % sides + 1
+        return rolledNumber
+    }
+}
 
